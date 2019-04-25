@@ -30,7 +30,9 @@ mysql:
   image: mysql:dev2
   ports:
     - "3306:3306"
+  command: --init-file /data/application/init.sql
   volumes:
     - /data/mysql:/var/lib/mysql
+    - ./createDB/init.sql:/data/application/init.sql
   env_file:
-    - .env 
+    - .variables.env 
